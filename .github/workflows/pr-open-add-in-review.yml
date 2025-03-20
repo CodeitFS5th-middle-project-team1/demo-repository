@@ -27,6 +27,9 @@ jobs:
 
           # 필드 ID 및 옵션 ID 얻기
           field_data=$(gh project field-list "$PROJECT_NUMBER" --owner "$ORGANIZATION" --format json)
+
+          echo $field_data
+          
           field_id=$(echo "$field_data" | jq -r ".[] | select(.name==\"$STATUS_FIELD_NAME\") | .id")
           option_id=$(echo "$field_data" | jq -r ".[] | select(.name==\"$STATUS_FIELD_NAME\") | .options[] | select(.name==\"$TARGET_STATUS\") | .id")
 
