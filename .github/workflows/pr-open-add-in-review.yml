@@ -18,11 +18,11 @@ jobs:
         run: |
           # PR URL 가져오기 (이 방식이 가장 안정적)
           pr_url="${{ github.event.pull_request.html_url }}"
-          echo "item_id: $pr_url"
+          echo "pr_url: $pr_url"
 
           # 프로젝트 ID 가져오기
           project_id=$(gh project view "$PROJECT_NUMBER" --owner "$ORGANIZATION" --format json | jq -r '.id')
-          echo "item_id: $project_id"
+          echo "project_id: $project_id"
 
           # 프로젝트에 PR 추가하고 item ID 얻기 (PR URL 사용)
           item_id=$(gh project item-add "$PROJECT_NUMBER" --owner "$ORGANIZATION" --url "$pr_url" --format json | jq -r '.id')
@@ -42,8 +42,4 @@ jobs:
           echo "option_id: $option_id"
 
           # 상태 필드를 "In Review"로 설정
-          gh project item-edit \
-            --project-id "$project-id" \
-            --id "$item_id" \
-            --field-id "$field_id" \
-            --single-select-option-id "$option_id"
+          gh project item-edit --project-id "$project-id" --id "$item_id" --field-id "$field_id" --single-select-option-id "$option_id"
