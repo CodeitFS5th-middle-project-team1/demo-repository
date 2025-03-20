@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Add PR to Project in "In Review"
         env:
-          GITHUB_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           ORGANIZATION: CodeitFS5th-middle-project-team1
           PROJECT_NUMBER: 1
           STATUS_FIELD_NAME: Status
