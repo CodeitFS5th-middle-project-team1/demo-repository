@@ -1,0 +1,21 @@
+name: Add PR to GitHub Project in "In Review"
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add_to_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add PR to GitHub Project
+        run: |
+          gh project item-add --owner ${{ github.repository_owner }} --project PVT_kwDODCYSGc4A0yUI --content-id ${{ github.event.pull_request.node_id }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
