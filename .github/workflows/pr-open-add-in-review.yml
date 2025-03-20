@@ -13,8 +13,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           ORGANIZATION: CodeitFS5th-middle-project-team1
           PROJECT_NUMBER: 1
-          STATUS_FIELD_NAME: "Status"
-          TARGET_STATUS: "In Review"
+          STATUS_FIELD_NAME: Status
+          TARGET_STATUS: In Review
         run: |
           # PR URL 가져오기 (이 방식이 가장 안정적)
           pr_url="${{ github.event.pull_request.html_url }}"
