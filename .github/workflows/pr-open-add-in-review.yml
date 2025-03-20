@@ -42,4 +42,4 @@ jobs:
           echo "option_id: $option_id"
 
           # 상태 필드를 "In Review"로 설정
-          gh project item-edit --project-id "$project-id" --id "$item_id" --field-id "$field_id" --single-select-option-id "$option_id"
+          gh project item-edit --project-id "$project_id" --id "$item_id" --field-id "$field_id" --single-select-option-id "$option_id"
