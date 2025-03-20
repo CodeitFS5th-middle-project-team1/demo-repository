@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Add PR to Project in "In Review"
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PROJECT_TOKEN }}
           ORGANIZATION: "CodeitFS5th-middle-project-team1" # GitHub organization 또는 username
           PROJECT_NUMBER: 1                          # GitHub Project 번호
           STATUS_FIELD_NAME: "Status"               # 기본 상태 필드 이름 (일반적으로 "Status")
